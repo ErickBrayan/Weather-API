@@ -37,7 +37,7 @@ public class WeatherCacheConfig {
     @Bean
     public CacheManager cacheManager(RedissonClient redissonClient) {
         CacheConfig cacheConfig = new CacheConfig();
-        cacheConfig.setTTL(Duration.ofHours(1).toMillis());
+        cacheConfig.setTTL(Duration.ofHours(12).toMillis());
 
         var config = Collections.singletonMap(CACHE_NAME, cacheConfig);
         return new RedissonSpringCacheManager(redissonClient, config);
